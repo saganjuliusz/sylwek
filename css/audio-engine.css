@@ -1,0 +1,124 @@
+/* G³ówny kontener kontrolek audio */
+#audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    /* Przyciski kontrolne */
+    #audio-controls button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #4CAF50;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        user-select: none;
+    }
+
+        #audio-controls button:hover {
+            transform: scale(1.1);
+        }
+
+    /* Suwak g³oœnoœci */
+    #audio-controls input[type="range"] {
+        width: 120px;
+        margin: 0 15px;
+        -webkit-appearance: none;
+        background: rgba(255, 255, 255, 0.2);
+        height: 4px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+        #audio-controls input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            #audio-controls input[type="range"]::-webkit-slider-thumb:hover {
+                transform: scale(1.2);
+            }
+
+/* Canvas wizualizacji */
+#visualizer-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Komunikat o b³êdzie */
+#player-error {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff5555;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    max-width: 300px;
+    word-wrap: break-word;
+    font-family: Arial, sans-serif;
+}
+
+/* Informacja o aktualnie odtwarzanym utworze */
+#now-playing {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(51, 51, 51, 0.9);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    max-width: 80%;
+    text-align: center;
+    word-wrap: break-word;
+    font-family: Arial, sans-serif;
+}
+
+/* Style dla przycisków w stanie aktywnym */
+#audio-controls button.active {
+    background: linear-gradient(145deg, #2196F3, #1e88e5);
+}
+
+/* Style dla przycisków w stanie nieaktywnym */
+#audio-controls button.inactive {
+    background: linear-gradient(145deg, #4CAF50, #45a049);
+}

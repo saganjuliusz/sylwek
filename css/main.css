@@ -1,0 +1,172 @@
+/* Reset i podstawowe style */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient( 135deg, #ff0080, #ff0000, #ff8c00, #ffd700, #00ff00, #00ffff, #0000ff, #8b00ff );
+    --blur-amount: 10px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', 'Arial', sans-serif;
+    perspective: 1000px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Kontener sceny */
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    will-change: transform;
+}
+
+/* Kontener tytu³u */
+.title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* G³ówny tytu³ */
+.main-title {
+    font-size: clamp(2rem, 10vw, 8rem);
+    font-weight: 800;
+    color: transparent;
+    background: var(--primary-gradient);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    transform-style: preserve-3d;
+    animation: gradientFlow 10s ease infinite;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+
+/* Kontener odliczania */
+.countdown-container {
+    position: relative;
+    margin-top: clamp(1rem, 5vw, 2rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: clamp(10px, 2vw, 20px);
+    justify-content: center;
+    padding: 0 15px;
+}
+
+/* Pude³ka odliczania */
+.countdown-box {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    padding: clamp(15px, 3vw, 20px);
+    border-radius: 15px;
+    text-align: center;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+    .countdown-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 30px rgba(255,255,255,0.2);
+    }
+
+/* Liczby odliczania */
+.countdown-number {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    font-weight: 700;
+    transition: color var(--transition-speed) ease;
+}
+
+/* Etykiety odliczania */
+.countdown-label {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: #aaa;
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+/* Animacje */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-box {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .countdown-box {
+        min-width: unset;
+    }
+}
+
+/* Optymalizacje wydajnoœci */
+@media (prefers-reduced-motion: reduce) {
+    .main-title {
+        animation: none;
+    }
+
+    .countdown-box {
+        transition: none;
+    }
+}
+
+/* Wsparcie dla starszych przegl¹darek */
+@supports not (backdrop-filter: blur(10px)) {
+    .countdown-box {
+        background: rgba(0,0,0,0.8);
+    }
+}

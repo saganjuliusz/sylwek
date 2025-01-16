@@ -1,0 +1,53 @@
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    opacity: 0;
+}
+
+.firework-3d {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    transform-style: preserve-3d;
+}
+
+.particle-3d {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.light-beam {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to top, transparent, #fff);
+    transform-origin: bottom;
+    animation: rotate 4s linear infinite;
+}
+
+.city-skyline {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to bottom, transparent, #000);
+}
+
+.building {
+    position: absolute;
+    bottom: 0;
+    background: #111;
+    width: 40px;
+    animation: glow 4s infinite alternate;
+}

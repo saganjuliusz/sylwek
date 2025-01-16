@@ -1,0 +1,17 @@
+﻿sylwek/
+├── index.php              # Strona główna
+├── api/                   # Katalog z głównymi stylami
+│   ├── get_files.php      # Skrypt do pobierania listy muzyki
+├── css/                   # Katalog z głównymi stylami
+│   ├── main.css           # Główne style
+│   ├── animations.css     # Animacje
+│   ├── particles.css      # Style dla efektów cząsteczkowych
+│   └── audio-engine.css   # Style dla odtwarzacza
+├── js/                    # Katalog z JavaScript
+│   ├── audio-engine.js    # Silnik audio z Web Audio API
+│   ├── effects.js         # Efekty wizualne
+│   ├── fireworks.js       # System fajerwerków
+│   ├── particles.js       # System cząsteczek
+│   └── main.js            # Główny skrypt aplikacji
+├── music/                 # Katalog z muzyką
+├── images/                # Grafiki
