@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿<!--Copyright by Juliusz Sagan. The right to copy is strictly prohibited! It is forbidden to use resources inappropriately!-->
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -41,3 +42,4 @@
     </div>
 </body>
 </html>
+﻿<!--Copyright by Juliusz Sagan. The right to copy is strictly prohibited! It is forbidden to use resources inappropriately!-->
